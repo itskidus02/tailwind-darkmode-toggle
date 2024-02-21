@@ -1,11 +1,12 @@
 import { useState } from "react";
+import moon from "./assets/sun-line.svg";
+import dak from "./assets/moon.svg";
 
 function App() {
-const [darkMode, setDarkMode] = useState(false);
-const toggleDarkMode = () => {
-  setDarkMode(!darkMode)
-}
-
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
 
   return (
     <div className={`${darkMode && "dark"}`}>
@@ -17,11 +18,22 @@ const toggleDarkMode = () => {
                 SAMPLE
               </span>
             </button>
+
+            <button
+              onClick={toggleDarkMode}
+              className=" w-10 h-10  rounded-full "
+            >
+              <img
+                src={darkMode ? moon : dak}
+                alt={darkMode ? "Dark Mode" : "Light Mode"}
+                className="w-full h-full"
+              />
+            </button>
             <div className="flex items-center space-x-6 rtl:space-x-reverse">
               <a
                 href="#"
                 className="bg-blue-500 dark:bg-white hover:bg-blue-700 text-white dark:text-blue-600 font-bold py-2 px-4 rounded"
-              >   
+              >
                 Some link
               </a>
             </div>
@@ -53,9 +65,6 @@ const toggleDarkMode = () => {
             deadly consequences of these awe-inspiring creatures presence.
           </p>
         </div>
-        <button onClick={toggleDarkMode} className="absolute w-16 h-16 bottom-16 right-16 bg-neutral-900 dark:bg-white rounded-full text-white dark:text-black">
-         {darkMode ? "lgt" : "drk"}
-        </button>
       </main>
     </div>
   );
